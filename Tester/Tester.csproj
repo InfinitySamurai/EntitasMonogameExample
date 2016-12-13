@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0F388232-925F-4820-A56A-A761542E9B03}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tester</RootNamespace>
+    <AssemblyName>Tester</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>WindowsGL</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\WindowsGL\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\WindowsGL\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CodeGenerator.cs" />
+    <Compile Include="Components\BoundingBoxComponent.cs" />
+    <Compile Include="Components\CentreComponent.cs" />
+    <Compile Include="Components\PlayerControllerComponent.cs" />
+    <Compile Include="Components\PositionComponent.cs" />
+    <Compile Include="Components\SpeedComponent.cs" />
+    <Compile Include="Components\VelocityComponent.cs" />
+    <Compile Include="Components\ViewComponent.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Generated\CoreAttribute.cs" />
+    <Compile Include="Generated\CoreComponentIds.cs" />
+    <Compile Include="Generated\EnemiesAttribute.cs" />
+    <Compile Include="Generated\EnemiesComponentIds.cs" />
+    <Compile Include="Generated\MetaAttribute.cs" />
+    <Compile Include="Generated\MetaComponentIds.cs" />
+    <Compile Include="Generated\Pools.cs" />
+    <Compile Include="Generated\Tester.BoundingBoxComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.CentreComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.PlayerControllerComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.PositionComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.SpeedComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.VelocityComponentGeneratedExtension.cs" />
+    <Compile Include="Generated\Tester.ViewComponentGeneratedExtension.cs" />
+    <Compile Include="Libraries\Entitas\Caching\EntitasCache.cs" />
+    <Compile Include="Libraries\Entitas\Caching\ObjectCache.cs" />
+    <Compile Include="Libraries\Entitas\Caching\ObjectPool.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\CustomComponentNameAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\CustomPrefixAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\DontGenerateAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\IndexKeyAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\PoolAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Attributes\SingleEntityAttribute.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\CodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\BlueprintsGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\ComponentExtensionsGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\ComponentIndicesGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\OldPoolsGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\PoolAttributesGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Generators\PoolsGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Interfaces\IBlueprintsCodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Interfaces\ICodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Interfaces\ICodeGeneratorDataProvider.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Interfaces\IComponentCodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Interfaces\IPoolCodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Intermediate\CodeGenFile.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Intermediate\ComponentInfo.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\Providers\TypeReflectionProvider.cs" />
+    <Compile Include="Libraries\Entitas\CodeGenerator\TypeReflectionCodeGenerator.cs" />
+    <Compile Include="Libraries\Entitas\EntitasException.cs" />
+    <Compile Include="Libraries\Entitas\Entity.cs" />
+    <Compile Include="Libraries\Entitas\EntityCollector.cs" />
+    <Compile Include="Libraries\Entitas\EntityIndex.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\CollectionExtension.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\EntityExtension.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\GroupExtension.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\IMatcherExtension.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\PoolExtension.cs" />
+    <Compile Include="Libraries\Entitas\Extensions\TypeExtension.cs" />
+    <Compile Include="Libraries\Entitas\Group.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\ICleanupSystem.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\IComponent.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\IExecuteSystem.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\IInitializeSystem.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\IMatcher.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\IReactiveSystem.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\ISystem.cs" />
+    <Compile Include="Libraries\Entitas\Interfaces\ITearDownSystem.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\Matcher.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\MatcherEquals.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\MatcherInterfaces.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\MatcherStatic.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\MatcherToString.cs" />
+    <Compile Include="Libraries\Entitas\Matcher\TriggerOnEvent.cs" />
+    <Compile Include="Libraries\Entitas\Pool.cs" />
+    <Compile Include="Libraries\Entitas\Pools.cs" />
+    <Compile Include="Libraries\Entitas\ReactiveSystem.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Blueprints\Blueprint.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Blueprints\BlueprintEntityExtension.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Blueprints\ComponentBlueprint.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Blueprints\HideInBlueprintInspectorAttribute.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Blueprints\SerializableMember.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Configuration\CodeGeneratorConfig.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Configuration\EntitasPreferences.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Configuration\EntitasPreferencesConfig.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\Configuration\Properties.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\PublicMemberInfo.cs" />
+    <Compile Include="Libraries\Entitas\Serialization\TypeSerializationExtension.cs" />
+    <Compile Include="Libraries\Entitas\Systems.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\MovementSystem.cs" />
+    <Compile Include="Systems\PlayerKeyboardSystem.cs" />
+    <Compile Include="Systems\UpdateBoundingBoxSystem.cs" />
+    <Compile Include="Systems\UpdateCentreSystem.cs" />
+    <Compile Include="Systems\ViewRenderSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\WindowsGL\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\WindowsGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libraries\Entitas\entitas_version" />
+  </ItemGroup>
+  <ItemGroup />
+  <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
+  <Target Name="BeforeResolveReferences">
+    <CreateProperty Value="$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows;$(AssemblySearchPaths)">
+      <Output TaskParameter="Value" PropertyName="AssemblySearchPaths" />
+    </CreateProperty>
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
