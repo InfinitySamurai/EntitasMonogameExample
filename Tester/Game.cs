@@ -14,25 +14,48 @@ namespace Tester {
         SpriteBatch spriteBatch;
         Systems systems;
         Pools pools;
-        Dictionary<String, Texture2D> content;
+        Dictionary<String, Texture2D> sprites;
+        SpriteFont font;
 
         public Game() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
-        void CreateSystems() {     
-             
-            
-            systems.Add(pools.core.CreateSystem(new MovementSystem()));
-            systems.Add(pools.core.CreateSystem(new ViewRenderSystem(spriteBatch, content)));
+        void CreateSystems() {
             systems.Add(pools.core.CreateSystem(new PlayerKeyboardSystem()));
+            systems.Add(pools.core.CreateSystem(new MovementSystem()));
+            systems.Add(pools.core.CreateSystem(new UpdateCentreSystem()));
+            systems.Add(pools.core.CreateSystem(new UpdateBoundingBoxSystem()));
+            systems.Add(pools.core.CreateSystem(new CollisionDetectionSystem()));
+            systems.Add(pools.core.CreateSystem(new HandleCollisionSystem()));
+            systems.Add(pools.core.CreateSystem(new HandlePointsSystem()));
+            systems.Add(pools.core.CreateSystem(new DrawScoreSystem(spriteBatch)));
+            systems.Add(pools.core.CreateSystem(new ViewRenderSystem(spriteBatch, sprites)));
         }
 
 
         void CreateEntitites() {
-            var e = pools.core.CreateEntity().AddPosition(0, 0).AddView(content["Hero"]).AddVelocity(0, 0).IsPlayerController(true).AddSpeed(5).AddBoundingBox(new Rectangle());
-            Console.WriteLine(e);
+            var e1 = pools.core.CreateEntity();
+            e1.AddPosition(0, 0);
+            e1.AddView(sprites["Hero"]);
+            e1.AddVelocity(0, 0);
+            e1.IsPlayerController(true);
+            e1.AddSpeed(5);
+            e1.AddBoundingBox(new Rectangle());
+            e1.AddCentre(0, 0);
+
+            var e2 = pools.core.CreateEntity();
+            e2.AddPosition(500,200);
+            e2.AddView(sprites["Coin"]);
+            e2.AddBoundingBox(new Rectangle());
+            e2.AddCentre(0, 0);
+
+            var eScore = pools.core.CreateEntity();
+            eScore.AddScore(0);
+            eScore.AddText("Score: ");
+            eScore.AddFont(font);
+            eScore.AddPosition(20, 20);
         }
 
         /// <summary>
@@ -46,7 +69,7 @@ namespace Tester {
             pools = Pools.sharedInstance;
             pools.SetAllPools();
             systems = new Systems();
-            content = new Dictionary<string, Texture2D>();
+            sprites = new Dictionary<string, Texture2D>();
 
 
             base.Initialize();
@@ -61,7 +84,9 @@ namespace Tester {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            content["Hero"] = Content.Load<Texture2D>("Hero");
+            sprites["Hero"] = Content.Load<Texture2D>("Hero");
+            sprites["Coin"] = Content.Load<Texture2D>("Coin");
+            font = Content.Load<SpriteFont>("Font");
             CreateSystems();
             CreateEntitites();
         }

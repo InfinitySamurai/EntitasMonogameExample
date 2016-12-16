@@ -1,12 +1,13 @@
 ﻿using Entitas;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
 
 namespace Tester{
-    class UpdateBoundingBoxSystem : IExecuteSystem, ISetPool {
-        Group group;
+    class UpdateBoundingBoxSystem : IReactiveSystem {
 
-        public void Execute() {
-            foreach(var e in group.GetEntities()) {
+        public void Execute(List<Entity> entities) {
+            foreach(var e in entities) {
                 var position = e.position;
                 var width = e.view.sprite.Width;
                 var height = e.view.sprite.Height;
@@ -21,8 +22,6 @@ namespace Tester{
             }
         }
 
-        public void SetPool(Pool pool) {
-            group = pool.GetGroup(Matcher.AllOf(CoreMatcher.BoundingBox, CoreMatcher.Position, CoreMatcher.View));
-        }
+        public TriggerOnEvent trigger { get { return Matcher.AllOf(CoreMatcher.Position, CoreMatcher.View, CoreMatcher.BoundingBox).OnEntityAdded(); } }
     }
 }

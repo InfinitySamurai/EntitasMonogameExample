@@ -10,20 +10,30 @@ public static class CoreComponentIds {
 
     public const int BoundingBox = 0;
     public const int Centre = 1;
-    public const int PlayerController = 2;
-    public const int Position = 3;
-    public const int Speed = 4;
-    public const int Velocity = 5;
-    public const int View = 6;
+    public const int Collide = 2;
+    public const int Font = 3;
+    public const int PlayerController = 4;
+    public const int Points = 5;
+    public const int Position = 6;
+    public const int Score = 7;
+    public const int Speed = 8;
+    public const int Text = 9;
+    public const int Velocity = 10;
+    public const int View = 11;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 12;
 
     public static readonly string[] componentNames = {
         "BoundingBox",
         "Centre",
+        "Collide",
+        "Font",
         "PlayerController",
+        "Points",
         "Position",
+        "Score",
         "Speed",
+        "Text",
         "Velocity",
         "View"
     };
@@ -31,9 +41,14 @@ public static class CoreComponentIds {
     public static readonly System.Type[] componentTypes = {
         typeof(Tester.BoundingBoxComponent),
         typeof(Tester.CentreComponent),
+        typeof(Tester.CollideComponent),
+        typeof(Tester.FontComponent),
         typeof(Tester.PlayerControllerComponent),
+        typeof(Tester.PointsComponent),
         typeof(Tester.PositionComponent),
+        typeof(Tester.ScoreComponent),
         typeof(Tester.SpeedComponent),
+        typeof(Tester.TextComponent),
         typeof(Tester.VelocityComponent),
         typeof(Tester.ViewComponent)
     };

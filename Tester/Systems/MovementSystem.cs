@@ -1,13 +1,13 @@
 ﻿using Entitas;
+using System;
+using System.Collections.Generic;
 
 namespace Tester {
-    public class MovementSystem : IExecuteSystem, ISetPool{
+    public class MovementSystem : IReactiveSystem{
 
-        Group group;
-
-        public void Execute()
+        public void Execute(List<Entity> entities)
         {
-            foreach(Entity e in group.GetEntities()) {
+            foreach(Entity e in entities) {
                 var velocity = e.velocity;
                 var position = e.position;
 
@@ -15,8 +15,6 @@ namespace Tester {
             }
         }
 
-        public void SetPool(Pool pool) {
-            group = pool.GetGroup(Matcher.AllOf(CoreMatcher.Position, CoreMatcher.Velocity));
-        }
+        public TriggerOnEvent trigger { get { return Matcher.AllOf(CoreMatcher.Position, CoreMatcher.Velocity).OnEntityAdded(); } }
     }
 }
